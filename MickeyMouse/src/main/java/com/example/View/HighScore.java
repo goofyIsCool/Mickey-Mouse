@@ -1,10 +1,16 @@
 package com.example.View;
 
+import Controller.Controller;
 import Model.Score;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -49,7 +55,21 @@ public class HighScore extends Stage {
         });
 
         scrollPane.setContent(scoreList);
+
         Scene scene = new Scene(scrollPane, 400, 400);
+
+        scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.ESCAPE);
+
+            public void handle(KeyEvent keyEvent) {
+                if (keyComb.match(keyEvent)) {
+                    Menu menu = new Menu();
+                    HighScore.this.close();
+                    menu.show();
+                }
+            }
+        });
+
         this.setTitle("High Score");
         this.setScene(scene);
     }

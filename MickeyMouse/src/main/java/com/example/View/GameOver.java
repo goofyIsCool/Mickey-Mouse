@@ -2,33 +2,36 @@ package com.example.View;
 
 import Model.Score;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 import java.io.*;
 import java.util.ArrayList;
 
 public class GameOver extends Stage {
 
     public GameOver(int points){
-        //Creating a GridPane container
         GridPane grid = new GridPane();
+        grid.setAlignment(Pos.CENTER);
         grid.setPadding(new Insets(10, 10, 10, 10));
         grid.setVgap(5);
         grid.setHgap(5);
 
+        final Label label = new Label("Enter your nickname:");
+        GridPane.setConstraints(label, 0, 0);
+        grid.getChildren().add(label);
+
         final TextField nickName = new TextField();
-        nickName.setPromptText("Enter your nickname.");
         nickName.setPrefColumnCount(10);
-        GridPane.setConstraints(nickName, 0, 0);
+        GridPane.setConstraints(nickName, 0, 1);
         grid.getChildren().add(nickName);
 
-//Defining the Submit button
         Button submit = new Button("Submit");
-        GridPane.setConstraints(submit, 1, 0);
+        GridPane.setConstraints(submit, 1, 1);
         grid.getChildren().add(submit);
 
         submit.setOnAction(e -> {

@@ -15,25 +15,25 @@ public class Egg extends Ellipse {
                 Ax = 0;
                 Ay = 25;
                 Bx = 150;
-                By = 210-35;
+                By = 150-35;
             }
             case 1 -> {
                 Ax = 0;
                 Ay = 100;
                 Bx = 150;
-                By = 250;
+                By = 150+40;
             }
             case 2 -> {
                 Ax = 400;
                 Ay = 25;
-                Bx = 300;
-                By = 210-35;
+                Bx = 250;
+                By = 150-35;
             }
             case 3 -> {
                 Ax = 400;
                 Ay = 100;
-                Bx = 300;
-                By = 250;
+                Bx = 250;
+                By = 150+40;
             }
         }
 
